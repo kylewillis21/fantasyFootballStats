@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  /* used this line whenever i needed to be able to visualize the boxes */
+  /* border: 1px solid blue; */
+}
+
+body {
+  margin: 0;
+}
+
+/*desktop styling*/
+@media screen and (min-width: 801px) {
+  .navInput {
+    color: white;
+    font-size: 1.5em;
+  }
+
+  .navInput input {
+    font-size: 0.75em;
+    width: 100%;
+    /* background-color: transparent; */
+    border-color: black;
+    border-radius: 8px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    /* padding: 0 1rem; */
+    width: 15%;
+    padding: 10px;
+    background-color: var(--secondary-background-color);
+    text-align: center;
+  }
+
+  .nav ul {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.5em;
+  }
+
+  .nav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+  }
+
+  .nav li.active {
+    color: var(--primary-color);
+    border-radius: 10px;
+  }
+
+  .nav li {
+    color: white;
+    -webkit-transition: color 0.125s;
+    -moz-transition: color 0.125s;
+    -ms-transition: color 0.125s;
+    -o-transition: color 0.125s;
+    transition: color 0.125s;
+  }
+
+  .nav li:hover {
+    /* background-color: #777; */
+    color: var(--primary-hover);
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,11 @@
+:root {
+  /* --primary-background-color: #101214; */
+  /* --secondary-background-color: #161a1d;
+  --primary-color: #0055cc;
+  --primary-hover: #0c66e4; */
+  --primary-background-color: #0b090a;
+  --secondary-background-color: #161a1d;
+  --primary-color: #a4161a;
+  --primary-hover: #e5383b;
+  background-color: var(--primary-background-color);
+}
