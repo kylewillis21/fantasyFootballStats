@@ -23,6 +23,13 @@ export default function Navbar() {
 
   return (
     <nav className="nav">
+      <nav className="siteTitle">Fantasy Football Stats</nav>
+      <ul>
+        <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="">Graphs</CustomLink>
+        <CustomLink to="">Hindsight Hero</CustomLink>
+        <CustomLink to="">Help</CustomLink>
+      </ul>
       <div className="navInput">
         League ID
         <input
@@ -32,12 +39,6 @@ export default function Navbar() {
           onBlur={handleInputBlur}
         />
       </div>
-      <ul>
-        <CustomLink to="/home">Home</CustomLink>
-        <CustomLink to="">Graphs</CustomLink>
-        <CustomLink to="">Hindsight Hero</CustomLink>
-        <CustomLink to="">Help</CustomLink>
-      </ul>
     </nav>
   );
 }
