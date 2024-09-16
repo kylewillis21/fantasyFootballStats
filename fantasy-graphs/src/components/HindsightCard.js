@@ -3,6 +3,8 @@ import "../styles/Hindsight.css";
 export default function HindsightCard({ data }) {
   if (!data) {
     return <div>No data available</div>;
+  } else if (data.teams.length < 1) {
+    return <div>No data available</div>;
   }
 
   return (
