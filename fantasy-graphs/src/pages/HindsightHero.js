@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import HindsightCard from "../components/HindsightCard";
 import { LeagueContext } from "../context/LeagueId";
+import { BarLoader } from "react-spinners";
 import "../styles/Hindsight.css";
 
 export default function HindsightHero() {
@@ -80,7 +81,13 @@ export default function HindsightHero() {
           Submit
         </button>
       </div>
-      {isLoading ? <div>Loading...</div> : hindsightData && <HindsightCard data={hindsightData} />}
+      {isLoading ? (
+        <div className="loader">
+          <BarLoader color="#a4161a" />
+        </div>
+      ) : (
+        hindsightData && <HindsightCard data={hindsightData} />
+      )}
     </div>
   );
 }
