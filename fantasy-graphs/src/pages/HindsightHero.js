@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 import HindsightCard from "../components/HindsightCard";
+import { LeagueContext } from "../context/LeagueId";
 import "../styles/Hindsight.css";
 
 export default function HindsightHero() {
@@ -8,6 +9,7 @@ export default function HindsightHero() {
   const [selectedWeek, setSelectedWeek] = useState(1); // default to 1
   const [hindsightData, setHindsightData] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const { leagueId } = useContext(LeagueContext);
 
   const handleYearChange = (e) => {
     setSelectedYear(e.target.value);
@@ -27,9 +29,10 @@ export default function HindsightHero() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/daotw/946854126/${selectedYear}/${selectedWeek}`
+        `http://localhost:3000/api/daotw/${leagueId}/${selectedYear}/${selectedWeek}`
       );
       const data = await response.json();
+      console.log(data);
       setHindsightData(data);
     } catch (err) {
       console.error("Error fetching hindsight data:", err);
@@ -54,7 +57,7 @@ export default function HindsightHero() {
         <div className="dropdown">
           <label htmlFor="yearSelect">Select Year</label>
           <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
-            {Array.from({ length: 7 }, (_, i) => 2018 + i).map((year) => (
+            {Array.from({ length: 16 }, (_, i) => 2009 + i).map((year) => (
               <option key={year} value={year}>
                 {year}
               </option>
