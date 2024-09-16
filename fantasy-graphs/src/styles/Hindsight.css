@@ -1,0 +1,179 @@
+.hhContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  margin: 15px;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--secondary-background-color);
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+label {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+select:hover {
+  border-color: #555;
+}
+
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 3px var(--primary-hover);
+  outline: none;
+}
+
+button:hover {
+  background-color: var(--primary-hover); /* Darker blue on hover */
+}
+
+button:active {
+  background-color: var(--primary-color); /* Even darker blue when pressed */
+  box-shadow: 0 2px 4px var(--primary-hover); /* Shrink shadow on click */
+}
+
+button:focus {
+  box-shadow: 0 0 0 3px var(--primary-hover); /* Focus ring effect */
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.hindsightCard {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hindsightGrid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, 22%);
+  justify-content: center;
+}
+
+.podium {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podiumFirst {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.podiumImage {
+  margin-top: 20px;
+  height: 50px;
+  width: auto;
+}
+
+.trophyImage {
+  height: 100px;
+  width: auto;
+}
+
+.hindsightTable {
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.hindsightTable table {
+  background: var(--secondary-background-color);
+  border-radius: 0.25rem;
+  border-collapse: collapse;
+  margin: 1em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hindsightTable th {
+  border-bottom: 1px solid #364043;
+  color: var(--primary-color);
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.hindsightTable td {
+  color: white;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+.hindsightTable tbody tr {
+  transition: background 0.25s ease;
+}
+
+.hindsightTable tbody tr:hover {
+  background: var(--primary-hover);
+}
+
+.tablePicture {
+  height: 25px;
+  width: auto;
+}
+
+.loader {
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
+/* wingardium<liviosa>longivium() */
