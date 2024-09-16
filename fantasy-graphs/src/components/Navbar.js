@@ -27,7 +27,7 @@ export default function Navbar() {
       <ul>
         <CustomLink to="/home">Home</CustomLink>
         <CustomLink to="">Graphs</CustomLink>
-        <CustomLink to="/hh">Hindsight Hero</CustomLink>
+        <CustomLink to="">Hindsight Hero</CustomLink>
         <CustomLink to="">Help</CustomLink>
       </ul>
       <div className="navInput">
