@@ -5,16 +5,12 @@ import { Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import HindsightHero from "./pages/HindsightHero";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/hh" element={<HindsightHero />} />
-      </Routes>
+      <Routes path="/home" element={<Home />} />
     </>
   );
 }

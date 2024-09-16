@@ -171,4 +171,9 @@ button:focus {
   width: auto;
 }
 
+.loader {
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
 /* wingardium<liviosa>longivium() */
