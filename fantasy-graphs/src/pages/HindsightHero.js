@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import HindsightCard from "../components/HindsightCard";
 import "../styles/Hindsight.css";
 
 export default function HindsightHero() {
   const [selectedYear, setSelectedYear] = useState(2024); // default to 2024
   const [selectedWeek, setSelectedWeek] = useState(1); // default to 1
+  const [hindsightData, setHindsightData] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const handleYearChange = (e) => {
     setSelectedYear(e.target.value);
@@ -12,6 +15,27 @@ export default function HindsightHero() {
 
   const handleWeekChange = (e) => {
     setSelectedWeek(e.target.value);
+  };
+
+  useEffect(() => {
+    if (hindsightData) {
+      console.log("Updated hindsightData: ", JSON.stringify(hindsightData));
+    }
+  }, [hindsightData]);
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/daotw/946854126/${selectedYear}/${selectedWeek}`
+      );
+      const data = await response.json();
+      setHindsightData(data);
+    } catch (err) {
+      console.error("Error fetching hindsight data:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -49,8 +73,11 @@ export default function HindsightHero() {
         </div>
       </div>
       <div className="buttonContainer">
-        <button className="button">Submit</button>
+        <button className="button" onClick={handleSubmit}>
+          Submit
+        </button>
       </div>
+      {isLoading ? <div>Loading...</div> : hindsightData && <HindsightCard data={hindsightData} />}
     </div>
   );
 }
