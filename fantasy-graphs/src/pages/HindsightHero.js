@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useMediaQuery } from "react-responsive";
+
 import HindsightCard from "../components/HindsightCard";
 import { LeagueContext } from "../context/LeagueId";
 import { BarLoader } from "react-spinners";
