@@ -12,8 +12,8 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="hh" element={<HindsightHero />} />
+        <Route path="" element={<Home />} />
+        <Route path="/hh" element={<HindsightHero />} />
       </Routes>
     </>
   );
