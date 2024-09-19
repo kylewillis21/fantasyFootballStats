@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 export default function Home() {
   return (
     <div>
-      <p>Home</p>
+      <p>home</p>
     </div>
   );
 }
