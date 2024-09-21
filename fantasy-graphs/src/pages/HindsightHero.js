@@ -10,7 +10,7 @@ export default function HindsightHero() {
   const [selectedWeek, setSelectedWeek] = useState(1); // default to 1
   const [hindsightData, setHindsightData] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const { leagueId } = useContext(LeagueContext);
+  const { currentLeagueId } = useContext(LeagueContext);
 
   const handleYearChange = (e) => {
     setSelectedYear(e.target.value);
@@ -30,7 +30,7 @@ export default function HindsightHero() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/daotw/${leagueId}/${selectedYear}/${selectedWeek}`
+        `http://localhost:3000/api/daotw/${currentLeagueId}/${selectedYear}/${selectedWeek}`
       );
       const data = await response.json();
       console.log(data);
