@@ -5,14 +5,15 @@ import { LeagueContext } from "../context/LeagueId";
 import { auth, signOut } from "../firebaseConfig";
 import LoginModal from "../auth/LoginModal";
 import SignUpModal from "../auth/SignUpModal";
+import AddLeagueModal from "../components/AddLeagueModal";
+import LeagueDropdown from "./LeagueDropdown";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
+  const [isLeagueModalOpen, setLeagueModalOpen] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 801 });
-  const { leagueId, setLeagueId } = useContext(LeagueContext);
-  const [inputValue, setInputValue] = useState(leagueId);
 
   // Handling authentication state changes
   useEffect(() => {
@@ -29,19 +30,6 @@ export default function Navbar() {
     }
   };
 
-  // Handling the input change of the league id text field
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    // Check for numeric value
-    if (!isNaN(value)) {
-      setInputValue(value);
-    }
-  };
-
-  const handleInputBlur = () => {
-    setLeagueId(Number(inputValue));
-  };
-
   return (
     <nav className="nav">
       {/* <nav className="siteTitle">Fantasy Football Stats</nav> */}
@@ -49,12 +37,30 @@ export default function Navbar() {
         <CustomLink to="">Home</CustomLink>
         <CustomLink to="/graphs">Graphs</CustomLink>
         <CustomLink to="/hh">Hindsight Hero</CustomLink>
-        <CustomLink to="/add">Add League</CustomLink>
+        {user ? (
+          <li>
+            <Link onClick={() => setLeagueModalOpen(true)}>Add League</Link>
+          </li>
+        ) : (
+          <></>
+        )}
+        {/* {user ? (
+          <li>
+            <LeagueDropdown />
+          </li>
+        ) : (
+          <></>
+        )} */}
+
+        <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
       </ul>
       <div className="navInput">
         {user ? (
           <>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <div className="navButtons">
+              <LeagueDropdown />
+              <button onClick={handleSignOut}>Sign Out</button>
+            </div>
           </>
         ) : (
           <>

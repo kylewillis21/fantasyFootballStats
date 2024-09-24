@@ -83,4 +83,42 @@ body {
     display: flex;
     gap: 1rem;
   }
+
+  .league-dropdown select {
+    background-color: transparent;
+    color: white;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .league-dropdown select:hover {
+    border-color: var(--primary-hover);
+  }
+
+  .league-dropdown select option:hover {
+    background-color: var(--primary-color);
+    color: black;
+  }
+
+  .league-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* .league-dropdown::after {
+    content: "▼";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+  } */
 }
