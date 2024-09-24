@@ -6,6 +6,7 @@ import { auth, signOut } from "../firebaseConfig";
 import LoginModal from "../auth/LoginModal";
 import SignUpModal from "../auth/SignUpModal";
 import AddLeagueModal from "../components/AddLeagueModal";
+import LeagueDropdown from "./LeagueDropdown";
 
 export default function Navbar() {
   const [user, setUser] = useState(null);
@@ -13,7 +14,6 @@ export default function Navbar() {
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
   const [isLeagueModalOpen, setLeagueModalOpen] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 801 });
-  const { currentLeagueId, setCurrentLeagueId } = useContext(LeagueContext);
 
   // Handling authentication state changes
   useEffect(() => {
@@ -44,13 +44,23 @@ export default function Navbar() {
         ) : (
           <></>
         )}
+        {/* {user ? (
+          <li>
+            <LeagueDropdown />
+          </li>
+        ) : (
+          <></>
+        )} */}
 
         <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
       </ul>
       <div className="navInput">
         {user ? (
           <>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <div className="navButtons">
+              <LeagueDropdown />
+              <button onClick={handleSignOut}>Sign Out</button>
+            </div>
           </>
         ) : (
           <>

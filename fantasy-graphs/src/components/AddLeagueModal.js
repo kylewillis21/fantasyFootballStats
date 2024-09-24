@@ -5,7 +5,9 @@ import "../styles/Login.css";
 
 const AddLeagueModal = ({ isOpen, onClose }) => {
   const [leagueId, setLeagueId] = useState("");
-  const { currentLeagueId, setCurrentLeagueId } = useContext(LeagueContext);
+  const [leagueName, setLeagueName] = useState("");
+  const { setCurrentLeagueId, setCurrentLeagueName, setAllLeagues, allLeagues } =
+    useContext(LeagueContext);
 
   const handleSubmit = async () => {
     try {
@@ -19,8 +21,11 @@ const AddLeagueModal = ({ isOpen, onClose }) => {
       const token = await user.getIdToken();
 
       const reqBody = {
-        leagueId: leagueId
+        leagueId: leagueId,
+        nickname: leagueName
       };
+
+      console.log(reqBody);
 
       const response = await fetch("http://localhost:3000/api/league", {
         method: "POST",
@@ -36,6 +41,8 @@ const AddLeagueModal = ({ isOpen, onClose }) => {
       }
       // update the context to the users league
       setCurrentLeagueId(leagueId);
+      setCurrentLeagueName(leagueName);
+      setAllLeagues([...allLeagues, reqBody]);
 
       onClose();
     } catch (error) {
@@ -59,6 +66,13 @@ const AddLeagueModal = ({ isOpen, onClose }) => {
             placeholder="League ID"
             value={leagueId}
             onChange={(e) => setLeagueId(e.target.value)}
+          />
+          <input
+            className="league-input"
+            type="text"
+            placeholder="League Name (optional)"
+            value={leagueName}
+            onChange={(e) => setLeagueName(e.target.value)}
           />
         </div>
         <div className="modal-buttons">
