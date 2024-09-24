@@ -35,7 +35,7 @@ export default function Navbar() {
       {/* <nav className="siteTitle">Fantasy Football Stats</nav> */}
       <ul>
         <CustomLink to="">Home</CustomLink>
-        <CustomLink to="/graphs">Graphs</CustomLink>
+        {/* <CustomLink to="/graphs">Graphs</CustomLink> */}
         <CustomLink to="/hh">Hindsight Hero</CustomLink>
         {user ? (
           <li>
@@ -44,13 +44,6 @@ export default function Navbar() {
         ) : (
           <></>
         )}
-        {/* {user ? (
-          <li>
-            <LeagueDropdown />
-          </li>
-        ) : (
-          <></>
-        )} */}
 
         <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
       </ul>
@@ -67,7 +60,7 @@ export default function Navbar() {
             <div className="navButtons">
               <button onClick={() => setLoginModalOpen(true)}>Login</button>
               <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
-              <button onClick={() => setSignupModalOpen(true)}>Sign Up</button>
+              <button onClick={() => setSignupModalOpen(true)}>Register</button>
               <SignUpModal isOpen={isSignupModalOpen} onClose={() => setSignupModalOpen(false)} />
             </div>
           </>
