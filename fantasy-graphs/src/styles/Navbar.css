@@ -122,3 +122,55 @@ body {
     color: white;
   } */
 }
+
+@media screen and (max-width: 800px) {
+  .nav {
+    display: flex;
+    background: var(--secondary-background-color); /* Navbar background color */
+    color: white; /* Navbar text color */
+    padding: 10px;
+  }
+
+  .nav li.active {
+    color: var(--primary-color);
+    border-radius: 10px;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .mobileMenu {
+    position: absolute;
+    top: 50px; /* Adjust this based on your navbar height */
+    left: 0;
+    background: var(--secondary-background-color); /* Mobile menu background */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it appears on top */
+  }
+
+  .mobileMenu ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .mobileMenu li {
+    margin: 10px 0;
+  }
+
+  .mobileMenu a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Adjust font size */
+  }
+
+  .navButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
