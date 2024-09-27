@@ -62,7 +62,10 @@ export default function HindsightCard({ data }) {
               <tr key={team.teamId}>
                 <td>{index + 4}</td>
                 <td>
-                  {<img className="tablePicture" src={team.logo} />} {team.teamName}
+                  <div className="logoName">
+                    {<img className="tablePicture" src={team.logo} />}
+                    <span>{team.teamName}</span>
+                  </div>
                 </td>
                 <td>{team.difference}</td>
               </tr>
