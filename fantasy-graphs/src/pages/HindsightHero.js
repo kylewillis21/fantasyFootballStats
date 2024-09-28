@@ -30,7 +30,7 @@ export default function HindsightHero() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://44.201.122.85:3000/api/daotw/${currentLeagueId}/${selectedYear}/${selectedWeek}`
+        `https://3.86.94.7:443/api/daotw/${currentLeagueId}/${selectedYear}/${selectedWeek}`
       );
       const data = await response.json();
       console.log(data);

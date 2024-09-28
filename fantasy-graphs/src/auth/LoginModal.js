@@ -11,7 +11,7 @@ const LoginModal = ({ isOpen, onClose }) => {
 
   const fetchLeagues = async (token) => {
     try {
-      const response = await fetch("http://44.201.122.85:3000/api/league", {
+      const response = await fetch("https://3.86.94.7:443/api/league", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
