@@ -8,11 +8,17 @@ import SignUpModal from "../auth/SignUpModal";
 import AddLeagueModal from "../components/AddLeagueModal";
 import LeagueDropdown from "./LeagueDropdown";
 
+// Mobile imports
+// import { useClickAway } from "react-use";
+import { Squash as Hamburger } from "hamburger-react";
+import { AnimatePresence, motion } from "framer-motion";
+
 export default function Navbar() {
   const [user, setUser] = useState(null);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [isSignupModalOpen, setSignupModalOpen] = useState(false);
   const [isLeagueModalOpen, setLeagueModalOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 801 });
 
   // Handling authentication state changes
@@ -30,51 +36,132 @@ export default function Navbar() {
     }
   };
 
-  return (
-    <nav className="nav">
-      {/* <nav className="siteTitle">Fantasy Football Stats</nav> */}
-      <ul>
-        <CustomLink to="">Home</CustomLink>
-        <CustomLink to="/graphs">Graphs</CustomLink>
-        <CustomLink to="/hh">Hindsight Hero</CustomLink>
-        {user ? (
-          <li>
-            <Link onClick={() => setLeagueModalOpen(true)}>Add League</Link>
-          </li>
-        ) : (
-          <></>
-        )}
-        {/* {user ? (
-          <li>
-            <LeagueDropdown />
-          </li>
-        ) : (
-          <></>
-        )} */}
+  if (isDesktop) {
+    // The desktop view of the navbar
+    return (
+      <nav className="nav">
+        {/* <nav className="siteTitle">Fantasy Football Stats</nav> */}
+        <ul>
+          <CustomLink to="">Home</CustomLink>
+          <CustomLink to="/graphs">Graphs</CustomLink>
+          <CustomLink to="/hh">Hindsight Hero</CustomLink>
+          {user ? (
+            <li>
+              <Link onClick={() => setLeagueModalOpen(true)}>Add League</Link>
+            </li>
+          ) : null}
 
+          <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
+        </ul>
+        <div className="navInput">
+          {user ? (
+            <>
+              <div className="navButtons">
+                <LeagueDropdown />
+                <button onClick={handleSignOut}>Sign Out</button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="navButtons">
+                <button onClick={() => setLoginModalOpen(true)}>Login</button>
+                <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
+                <button onClick={() => setSignupModalOpen(true)}>Register</button>
+                <SignUpModal isOpen={isSignupModalOpen} onClose={() => setSignupModalOpen(false)} />
+              </div>
+            </>
+          )}
+        </div>
+      </nav>
+    );
+  } else {
+    // mobile view of the navbar
+    return (
+      <nav className="nav">
+        <div className="hamburger">
+          <Hamburger toggled={isOpen} toggle={setOpen} />
+        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+              className="mobileMenu"
+            >
+              <ul>
+                <CustomLink to="" onClick={() => setOpen(false)}>
+                  Home
+                </CustomLink>
+                <CustomLink to="/graphs" onClick={() => setOpen(false)}>
+                  Graphs
+                </CustomLink>
+                <CustomLink to="/hh" onClick={() => setOpen(false)}>
+                  Hindsight Hero
+                </CustomLink>
+                {user ? (
+                  <li>
+                    <Link
+                      onClick={() => {
+                        setLeagueModalOpen(true);
+                        setOpen(false);
+                      }}
+                    >
+                      Add League
+                    </Link>
+                  </li>
+                ) : null}
+              </ul>
+              <div className="navInput">
+                {user ? (
+                  <div className="navButtons">
+                    <LeagueDropdown />
+                    <button
+                      onClick={() => {
+                        handleSignOut();
+                        setOpen(false);
+                      }}
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <div className="navButtons">
+                    <button
+                      onClick={() => {
+                        setLoginModalOpen(true);
+                        setOpen(false);
+                      }}
+                    >
+                      Login
+                    </button>
+                    <LoginModal
+                      isOpen={isLoginModalOpen}
+                      onClose={() => setLoginModalOpen(false)}
+                    />
+                    <button
+                      onClick={() => {
+                        setSignupModalOpen(true);
+                        setOpen(false);
+                      }}
+                    >
+                      Register
+                    </button>
+                    <SignUpModal
+                      isOpen={isSignupModalOpen}
+                      onClose={() => setSignupModalOpen(false)}
+                    />
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
-      </ul>
-      <div className="navInput">
-        {user ? (
-          <>
-            <div className="navButtons">
-              <LeagueDropdown />
-              <button onClick={handleSignOut}>Sign Out</button>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="navButtons">
-              <button onClick={() => setLoginModalOpen(true)}>Login</button>
-              <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
-              <button onClick={() => setSignupModalOpen(true)}>Sign Up</button>
-              <SignUpModal isOpen={isSignupModalOpen} onClose={() => setSignupModalOpen(false)} />
-            </div>
-          </>
-        )}
-      </div>
-    </nav>
-  );
+      </nav>
+    );
+  }
 }
 
 function CustomLink({ to, children, ...props }) {

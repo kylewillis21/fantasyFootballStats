@@ -1,0 +1,166 @@
+.highlight {
+  color: yellow;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 801px) {
+  .homeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .homeBanner {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .homeBanner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .bannerContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+
+  .bannerContent h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .homeButton {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+    margin-top: 40px;
+  }
+
+  .homeButton button {
+    height: 50px;
+    width: 200px;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 2em;
+    gap: 2em;
+    width: 95%;
+    margin: auto;
+    color: white;
+  }
+
+  .info {
+    /* flex: 1; */
+    font-size: 1.1rem;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--secondary-background-color);
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+  }
+
+  .info p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 2px;
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .homeContainer {
+    display: felx;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .homeBanner {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .homeBanner img {
+    width: 100%;
+    height: auto;
+  }
+
+  .bannerContent {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+
+  .bannerContent h1 {
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  .homeButton {
+    display: flex;
+    justify-content: center;
+    gap: 5em;
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    padding: 2em;
+    gap: 2em;
+    width: 99%;
+    margin: auto;
+    color: white;
+  }
+
+  .info {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--secondary-background-color);
+    margin-top: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .info h2 {
+    font-size: 1.5rem;
+  }
+
+  .info p {
+    /* border: 1px blue solid; */
+    overflow: auto;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-top: 2px;
+    flex-grow: 1;
+  }
+}
