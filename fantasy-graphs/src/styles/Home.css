@@ -156,7 +156,9 @@
   }
 
   .info p {
-    font-size: 1.1rem;
+    /* border: 1px blue solid; */
+    overflow: auto;
+    font-size: 1.05rem;
     line-height: 1.5;
     margin-top: 2px;
     flex-grow: 1;
