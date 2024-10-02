@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import HindsightHero from "./pages/HindsightHero";
+import TeamStats from "./pages/TeamStats";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="/hh" element={<HindsightHero />} />
+        <Route path="stats" element={<TeamStats />} />
       </Routes>
     </>
   );

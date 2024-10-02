@@ -43,14 +43,15 @@ export default function Navbar() {
         {/* <nav className="siteTitle">Fantasy Football Stats</nav> */}
         <ul>
           <CustomLink to="">Home</CustomLink>
-          <CustomLink to="/graphs">Graphs</CustomLink>
-          <CustomLink to="/hh">Hindsight Hero</CustomLink>
           {user ? (
-            <li>
-              <Link onClick={() => setLeagueModalOpen(true)}>Add League</Link>
-            </li>
+            <>
+              <CustomLink to="/stats">Team Stats</CustomLink>
+              <CustomLink to="/hh">Hindsight Hero</CustomLink>
+              <li>
+                <Link onClick={() => setLeagueModalOpen(true)}>Add League</Link>
+              </li>
+            </>
           ) : null}
-
           <AddLeagueModal isOpen={isLeagueModalOpen} onClose={() => setLeagueModalOpen(false)} />
         </ul>
         <div className="navInput">
