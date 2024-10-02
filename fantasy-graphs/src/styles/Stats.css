@@ -1,0 +1,50 @@
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+}
+
+.statsTable {
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.statsTable table {
+  background: var(--secondary-background-color);
+  border-radius: 0.25rem;
+  border-collapse: collapse;
+  margin: 1em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.statsTable th {
+  border-bottom: 1px solid #364043;
+  color: var(--primary-color);
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.statsTable td {
+  color: white;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+.statsTable tbody td:hover {
+  background: var(--primary-hover);
+}
