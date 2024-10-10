@@ -77,9 +77,7 @@ export default function HindsightHero() {
         </div>
       </div>
       <div className="buttonContainer">
-        <button className="button" onClick={handleSubmit}>
-          Submit
-        </button>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       {isLoading ? (
         <div className="loader">

@@ -7,12 +7,45 @@
 .dropdownContainer {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .dropdown {
   display: flex;
   flex-direction: column;
   padding: 2px;
+}
+
+.tag {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 0.5em;
+  border-radius: 1.25em;
+  margin: 3px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: var(--primary-hover);
+}
+
+.tag button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: inherit;
+  font-weight: bold;
+}
+
+.tag button:hover {
+  color: black;
+}
+
+.tags {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .statsTable {
@@ -26,12 +59,19 @@
   border-radius: 0.25rem;
   border-collapse: collapse;
   margin: 1em;
-  width: 90%;
+  /* width: 90%; */
+  width: auto;
   margin: 0 auto;
 }
 
-.statsTable th {
+.statsTable thead th {
+  color: var(--primary-color);
   border-bottom: 1px solid #364043;
+  padding: 15px;
+}
+
+.statsTable tbody th {
+  border-right: 1px solid #364043;
   color: var(--primary-color);
   font-size: 0.85em;
   font-weight: 600;
@@ -43,8 +83,44 @@
   color: white;
   font-weight: 400;
   padding: 0.65em 1em;
+  width: auto;
 }
 
 .statsTable tbody td:hover {
   background: var(--primary-hover);
+}
+
+.submit {
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 3px var(--primary-hover);
+  outline: none;
+}
+
+.submit:hover {
+  background-color: var(--primary-hover);
+}
+
+.submit:active {
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px var(--primary-hover);
+}
+
+.submit:focus {
+  box-shadow: 0 0 0 3px var(--primary-hover);
+}
+
+.loadingDesc {
+  color: white;
+  align-items: center;
 }

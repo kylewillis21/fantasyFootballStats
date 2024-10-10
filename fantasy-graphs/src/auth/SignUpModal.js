@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, createUserWithEmailAndPassword } from "../firebaseConfig";
+import SubmitButton from "../components/buttons/SubmitButton";
 import "../styles/Login.css";
 
 const SignUpModal = ({ isOpen, onClose }) => {
@@ -93,8 +94,8 @@ const SignUpModal = ({ isOpen, onClose }) => {
           )}
         </div>
         <div className="modal-buttons">
-          <button onClick={handleSignup}>Sign Up</button>
-          <button onClick={onClose}>Close</button>
+          <SubmitButton onPress={handleSignup} text="Sign Up" />
+          <SubmitButton onPress={onClose} text="Close" />
         </div>
       </div>
     </div>
