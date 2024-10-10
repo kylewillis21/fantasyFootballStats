@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { auth } from "../firebaseConfig";
 import { LeagueContext } from "../context/LeagueId";
+import SubmitButton from "./buttons/SubmitButton";
 import "../styles/Login.css";
 
 const AddLeagueModal = ({ isOpen, onClose }) => {
@@ -76,8 +77,8 @@ const AddLeagueModal = ({ isOpen, onClose }) => {
           />
         </div>
         <div className="modal-buttons">
-          <button onClick={handleSubmit}>Submit</button>
-          <button onClick={onClose}>Close</button>
+          <SubmitButton text="Submit" onPress={handleSubmit} />
+          <SubmitButton text="Close" onPress={onClose} />
         </div>
       </div>
     </div>

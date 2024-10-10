@@ -8,32 +8,84 @@ export default function StatsCard({ data }) {
       <table>
         <thead>
           <tr>
-            <th>Standing</th>
-            <th>Projected Rank</th>
-            <th>Points For</th>
-            <th>Points Against</th>
-            <th>Average Points</th>
-            <th>Wins</th>
-            <th>Losses</th>
-            <th>Ties</th>
-            <th>Win Percentage</th>
-            <th>Playoff Percentage</th>
-            <th># of Trades</th>
+            <th></th>
+            {data?.map((team) => (
+              <th>{team.teamName}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>{data.standing}</td>
-            <td>{data.draftProjectedRank}</td>
-            <td>{data.pointsFor}</td>
-            <td>{data.pointsAgainst}</td>
-            <td>{data.pointsFor / (data.wins + data.losses + data.ties)}</td>
-            <td>{data.wins}</td>
-            <td>{data.losses}</td>
-            <td>{data.ties}</td>
-            <td>{(data.wins + data.ties * 0.5) / (data.wins + data.losses + data.ties)}</td>
-            <td>{data.playoffPct}</td>
-            <td>{data.trades}</td>
+            <th>Standing</th>
+            {data?.map((team) => (
+              <td>{team.standing}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Projected Rank</th>
+            {data?.map((team) => (
+              <td>{team.draftProjectedRank}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Wins</th>
+            {data?.map((team) => (
+              <td>{team.wins}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Losses</th>
+            {data?.map((team) => (
+              <td>{team.losses}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Ties</th>
+            {data?.map((team) => (
+              <td>{team.ties}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Win Percentage</th>
+            {data?.map((team) => (
+              <td>
+                {((team.wins + team.ties * 0.5) / (team.wins + team.losses + team.ties)) * 100}%
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th>Playoff Percentage</th>
+            {data?.map((team) => (
+              <td>{Math.round(team.playoffPct * 100)}%</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Points For</th>
+            {data?.map((team) => (
+              <td>{team.pointsFor}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Points Against</th>
+            {data?.map((team) => (
+              <td>{team.pointsAgainst}</td>
+            ))}
+          </tr>
+          <tr>
+            <th>Average Points</th>
+            {data?.map((team) => (
+              <td>
+                {(
+                  Math.round((team.pointsFor / (team.wins + team.losses + team.ties)) * 100) / 100
+                ).toFixed(2)}
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <th># of Trades</th>
+            {data?.map((team) => (
+              <td>{team.trades}</td>
+            ))}
           </tr>
         </tbody>
       </table>

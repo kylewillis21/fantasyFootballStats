@@ -60,7 +60,7 @@
     padding: 10px;
   }
 
-  button {
+  .buttonContainer button {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: 600;
@@ -74,16 +74,16 @@
     outline: none;
   }
 
-  button:hover {
+  .buttonContainer button:hover {
     background-color: var(--primary-hover);
   }
 
-  button:active {
+  .buttonContainer button:active {
     background-color: var(--primary-color);
     box-shadow: 0 2px 4px var(--primary-hover);
   }
 
-  button:focus {
+  .buttonContainer button:focus {
     box-shadow: 0 0 0 3px var(--primary-hover); /* Focus ring effect */
   }
 

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { auth, signInWithEmailAndPassword } from "../firebaseConfig";
 import { LeagueContext } from "../context/LeagueId";
+import SubmitButton from "../components/buttons/SubmitButton";
 import "../styles/Login.css";
 
 const LoginModal = ({ isOpen, onClose }) => {
@@ -87,8 +88,8 @@ const LoginModal = ({ isOpen, onClose }) => {
           {error && <p className="error">Invalid email or password</p>}
         </div>
         <div className="modal-buttons">
-          <button onClick={handleLogin}>Login</button>
-          <button onClick={onClose}>Close</button>
+          <SubmitButton text="Login" onPress={handleLogin} />
+          <SubmitButton text="Close" onPress={onClose} />
         </div>
       </div>
     </div>

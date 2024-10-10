@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../firebaseConfig";
 import LoginModal from "../auth/LoginModal";
 import SignUpModal from "../auth/SignUpModal";
+import HomeButton from "../components/buttons/HomeButton";
 
 import "../styles/Home.css";
 
@@ -31,9 +32,9 @@ export default function Home() {
           <div className="bannerContent">
             <h1>Welcome to Hindsight Heroes</h1>
             <div className="homeButton">
-              <button onClick={() => setLoginModalOpen(true)}>Login</button>
+              <HomeButton onClick={() => setLoginModalOpen(true)} text="Login" />
               <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
-              <button onClick={() => setSignUpModalOpen(true)}>Register</button>
+              <HomeButton onClick={() => setSignUpModalOpen(true)} text="Sign Up" />
               <SignUpModal isOpen={isSignupModalOpen} onClose={() => setSignUpModalOpen(false)} />
             </div>
           </div>

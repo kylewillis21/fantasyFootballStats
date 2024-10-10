@@ -110,6 +110,7 @@ body {
   .league-dropdown {
     position: relative;
     display: inline-block;
+    align-content: center;
   }
 
   /* .league-dropdown::after {

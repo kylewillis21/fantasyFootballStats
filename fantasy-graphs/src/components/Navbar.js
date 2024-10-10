@@ -7,6 +7,7 @@ import LoginModal from "../auth/LoginModal";
 import SignUpModal from "../auth/SignUpModal";
 import AddLeagueModal from "../components/AddLeagueModal";
 import LeagueDropdown from "./LeagueDropdown";
+import SubmitButton from "./buttons/SubmitButton";
 
 // Mobile imports
 // import { useClickAway } from "react-use";
@@ -59,15 +60,15 @@ export default function Navbar() {
             <>
               <div className="navButtons">
                 <LeagueDropdown />
-                <button onClick={handleSignOut}>Sign Out</button>
+                <SubmitButton onPress={handleSignOut} text="Sign Out" />
               </div>
             </>
           ) : (
             <>
               <div className="navButtons">
-                <button onClick={() => setLoginModalOpen(true)}>Login</button>
+                <SubmitButton onPress={() => setLoginModalOpen(true)} text="Login" />
                 <LoginModal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} />
-                <button onClick={() => setSignupModalOpen(true)}>Register</button>
+                <SubmitButton onPress={() => setSignupModalOpen(true)} text="Sign Up" />
                 <SignUpModal isOpen={isSignupModalOpen} onClose={() => setSignupModalOpen(false)} />
               </div>
             </>
@@ -95,8 +96,8 @@ export default function Navbar() {
                 <CustomLink to="" onClick={() => setOpen(false)}>
                   Home
                 </CustomLink>
-                <CustomLink to="/graphs" onClick={() => setOpen(false)}>
-                  Graphs
+                <CustomLink to="/stats" onClick={() => setOpen(false)}>
+                  Team Stats
                 </CustomLink>
                 <CustomLink to="/hh" onClick={() => setOpen(false)}>
                   Hindsight Hero
