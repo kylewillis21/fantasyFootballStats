@@ -6,7 +6,7 @@ import { BarLoader } from "react-spinners";
 import "../styles/Hindsight.css";
 
 export default function HindsightHero() {
-  const [selectedYear, setSelectedYear] = useState(2024); // default to 2024
+  const [selectedYear, setSelectedYear] = useState(2025); // default to 2025
   const [selectedWeek, setSelectedWeek] = useState(1); // default to 1
   const [hindsightData, setHindsightData] = useState(null);
   const [isLoading, setLoading] = useState(false);
